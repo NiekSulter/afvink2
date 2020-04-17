@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>DNA Translation</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
 </head>
 <body>
     <h1>Convert DNA sequence to protein sequence</h1>
@@ -11,6 +12,8 @@
             <input type="text" name="text">
             <input type="submit" name="button" value="Submit">
         </form>
-    {{ output }}
+    <br />
+    <hr>
+    <p>Protein sequence:</p> {{ output }}
 </body>
 </html>
