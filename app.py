@@ -1,5 +1,7 @@
 from flask import Flask, request, render_template
-import biopython
+from Bio.Seq import Seq
+from Bio.Alphabet import generic_dna
+
 
 app = Flask(__name__)
 
@@ -11,7 +13,10 @@ def hello_world():
 @app.route('/', methods=['POST'])
 def convert():
     if request.method == 'POST':
-        output = request.form['text']
+        x = request.form['text']
+        x = ''.join(x.split())
+        output = Seq(x, generic_dna)
+        output = output.translate()
         return render_template('index.html', output=output)
 
 if __name__ == '__main__':
